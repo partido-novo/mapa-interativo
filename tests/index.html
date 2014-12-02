@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NOVO - Mapa Interativo.</title>
+  <link rel="stylesheet" media="all" href="../jquery-jvectormap.css"/>
+  <script src="assets/jquery-1.8.2.js"></script>
+  <script src="../jquery-jvectormap.js"></script>
+  <script src="../lib/jquery-mousewheel.js"></script>
+
+  <script src="../src/jvectormap.js"></script>
+
+  <script src="../src/abstract-element.js"></script>
+  <script src="../src/abstract-canvas-element.js"></script>
+  <script src="../src/abstract-shape-element.js"></script>
+
+  <script src="../src/svg-element.js"></script>
+  <script src="../src/svg-group-element.js"></script>
+  <script src="../src/svg-canvas-element.js"></script>
+  <script src="../src/svg-shape-element.js"></script>
+  <script src="../src/svg-path-element.js"></script>
+  <script src="../src/svg-circle-element.js"></script>
+  <script src="../src/svg-image-element.js"></script>
+  <script src="../src/svg-text-element.js"></script>
+
+  <script src="../src/vml-element.js"></script>
+  <script src="../src/vml-group-element.js"></script>
+  <script src="../src/vml-canvas-element.js"></script>
+  <script src="../src/vml-shape-element.js"></script>
+  <script src="../src/vml-path-element.js"></script>
+  <script src="../src/vml-circle-element.js"></script>
+  <script src="../src/vml-image-element.js"></script>
+
+  <script src="../src/map-object.js"></script>
+  <script src="../src/region.js"></script>
+  <script src="../src/marker.js"></script>
+
+  <script src="../src/vector-canvas.js"></script>
+  <script src="../src/simple-scale.js"></script>
+  <script src="../src/ordinal-scale.js"></script>
+  <script src="../src/numeric-scale.js"></script>
+  <script src="../src/color-scale.js"></script>
+  <script src="../src/legend.js"></script>
+  <script src="../src/data-series.js"></script>
+  <script src="../src/proj.js"></script>
+  <script src="../src/map.js"></script>
+
+  <script src="assets/jquery-jvectormap-world-mill-en.js"></script>
+  <script>
+    jQuery.noConflict();
+    jQuery(function(){
+      var $ = jQuery;
+
+      $('#focus-single').click(function(){
+        $('#map1').vectorMap('set', 'focus', {region: 'AU', animate: true});
+      });
+      $('#focus-multiple').click(function(){
+        $('#map1').vectorMap('set', 'focus', {regions: ['AU', 'JP'], animate: true});
+      });
+      $('#focus-coords').click(function(){
+        $('#map1').vectorMap('set', 'focus', {scale: 7, lat: 35, lng: 33, animate: true});
+      });
+      $('#focus-init').click(function(){
+        $('#map1').vectorMap('set', 'focus', {scale: 1, x: 0.5, y: 0.5, animate: true});
+      });
+
+
+    $('#map1').vectorMap({
+        map: 'world_mill_en',
+        panOnDrag: true,
+        focusOn: {
+            x: 0.5,
+            y: 0.5,
+            scale: 0,
+            animate: true
+        },
+        series: {
+            regions: [{
+                scale: ['#C8EEFF', '#0071A4'],
+                normalizeFunction: 'polynomial',
+                values: {
+                    "AF": 8,
+                    "AL": 33,
+                    "DZ": 34,
+                    "AO": 22,
+                    "AR": 35,
+                    "AM": 34,
+                    "AU": 85,
+                    "AT": 27,
+                    "AZ": 71,
+                    "BS": 51,
+                    "BH": 26,
+                    "BD": 26,
+                    "BB": 76,
+                    "BY": 31,
+                    "BE": 75,
+                    "BJ": 36,
+                    "BT": 63,
+                    "BO": 34,
+                    "BA": 42,
+                    "BW": 65,
+                    "BR": 43,
+                    "BN": 55,
+                    "BG": 41,
+                    "BF": 38,
+                    "BI": 19,
+                    "KH": 22,
+                    "CM": 26,
+                    "CA": 84,
+                    "CV": 60,
+                    "CF": 26,
+                    "TD": 19,
+                    "CL": 72,
+                    "CN": 39,
+                    "CO": 36,
+                    "KM": 28,
+                    "CD": 21,
+                    "CG": 26,
+                    "CR": 54,
+                    "CI": 29,
+                    "HR": 46,
+                    "CY": 66,
+                    "CZ": 49,
+                    "DK": 90,
+                    "DJ": 36,
+                    "DM": 58,
+                    "DO": 32,
+                    "EC": 32,
+                    "EG": 32,
+                    "SV": 38,
+                    "GQ": 20,
+                    "ER": 25,
+                    "EE": 64,
+                    "ET": 33,
+                    "FI": 90,
+                    "FR": 71,
+                    "GA": 35,
+                    "GM": 34,
+                    "GE": 52,
+                    "DE": 79,
+                    "GH": 45,
+                    "GR": 36,
+                    "GT": 33,
+                    "GN": 24,
+                    "GW": 25,
+                    "GY": 28,
+                    "HT": 19,
+                    "HN": 28,
+                    "HK": 77,
+                    "HU": 55,
+                    "IS": 82,
+                    "IN": 36,
+                    "ID": 32,
+                    "IR": 28,
+                    "IQ": 18,
+                    "IE": 69,
+                    "IL": 60,
+                    "IT": 42,
+                    "JM": 38,
+                    "JP": 74,
+                    "JO": 48,
+                    "KZ": 28,
+                    "KE": 27,
+                    "KW": 44,
+                    "KR": 56,
+                    "KP": 8,
+                    "LA": 21,
+                    "LV": 49,
+                    "LB": 30,
+                    "LS": 45,
+                    "LR": 41,
+                    "LY": 21,
+                    "LT": 54,
+                    "LU": 80,
+                    "MG": 32,
+                    "MW": 37,
+                    "MY": 49,
+                    "ML": 34,
+                    "MT": 57,
+                    "MR": 31,
+                    "MU": 57,
+                    "MX": 34,
+                    "MD": 36,
+                    "MN": 36,
+                    "ME": 41,
+                    "MA": 37,
+                    "MZ": 31,
+                    "MM": 15,
+                    "NA": 38,
+                    "NP": 27,
+                    "NL": 84,
+                    "NZ": 90,
+                    "NI": 29,
+                    "NE": 33,
+                    "NG": 27,
+                    "NO": 85,
+                    "OM": 47,
+                    "PK": 27,
+                    "PA": 38,
+                    "PG": 25,
+                    "PY": 25,
+                    "PE": 38,
+                    "PH": 34,
+                    "PL": 58,
+                    "PT": 63,
+                    "PR": 63,
+                    "QA": 68,
+                    "RO": 44,
+                    "RU": 28,
+                    "RW": 53,
+                    "ST": 42,
+                    "SA": 44,
+                    "SN": 36,
+                    "RS": 39,
+                    "SC": 52,
+                    "SL": 31,
+                    "SG": 87,
+                    "SK": 46,
+                    "SI": 61,
+                    "SO": 8,
+                    "ZA": 43,
+                    "ES": 65,
+                    "LK": 40,
+                    "LC": 71,
+                    "VC": 62,
+                    "SD": 13,
+                    "SR": 37,
+                    "SZ": 37,
+                    "SE": 88,
+                    "CH": 86,
+                    "SY": 26,
+                    "TW": 61,
+                    "TJ": 22,
+                    "TZ": 35,
+                    "TH": 37,
+                    "TL": 33,
+                    "TG": 30,
+                    "TT": 39,
+                    "TN": 41,
+                    "TR": 49,
+                    "TM": 17,
+                    "UG": 29,
+                    "UA": 26,
+                    "AE": 68,
+                    "GB": 74,
+                    "US": 73,
+                    "UY": 72,
+                    "UZ": 17,
+                    "VE": 19,
+                    "VN": 31,
+                    "YE": 23,
+                    "ZM": 37,
+                    "ZW": 20
+                }
+            }]
+        }
+    });
+
+
+    $('#map2').vectorMap({
+        map: 'world_mill_en',
+        panOnDrag: true,
+        focusOn: {
+            x: 0.5,
+            y: 0.5,
+            scale: 0,
+            animate: true
+        },
+        series: {
+            regions: [{
+                scale: ['#C8EEFF', '#0071A4'],
+                normalizeFunction: 'polynomial',
+                values: {
+                    "AL": 7.18,
+                    "DZ": 5.09,
+                    "AO": 5.46,
+                    "AR": 4.92,
+                    "AM": 7.72,
+                    "AU": 7.87,
+                    "AT": 7.48,
+                    "AZ": 6.39,
+                    "BS": 7.39,
+                    "BH": 7.57,
+                    "BD": 6.33,
+                    "BB": 6.86,
+                    "BE": 7.27,
+                    "BJ": 5.75,
+                    "BO": 6.51,
+                    "BA": 6.89,
+                    "BW": 7.26,
+                    "BR": 6.61,
+                    "BN": 7.18,
+                    "BG": 7.39,
+                    "BF": 5.86,
+                    "BI": 5.21,
+                    "KH": 7.02,
+                    "CM": 6.05,
+                    "CA": 8,
+                    "CV": 6.54,
+                    "TD": 5.21,
+                    "CL": 7.84,
+                    "CN": 6.39,
+                    "CO": 6.59,
+                    "CD": 5.24,
+                    "CG": 5.24,
+                    "CR": 7.6,
+                    "CI": 5.93,
+                    "HR": 7.04,
+                    "CY": 7.45,
+                    "CZ": 7.38,
+                    "DK": 7.66,
+                    "DO": 7.11,
+                    "EC": 6.01,
+                    "EG": 6.27,
+                    "SV": 7.19,
+                    "EE": 7.61,
+                    "ET": 5.65,
+                    "FI": 7.84,
+                    "FR": 7.21,
+                    "GA": 5.78,
+                    "GM": 6.99,
+                    "GE": 7.73,
+                    "DE": 7.55,
+                    "GH": 6.65,
+                    "GR": 6.87,
+                    "GT": 7.31,
+                    "GW": 6.06,
+                    "HT": 6.74,
+                    "HN": 7.24,
+                    "HK": 8.98,
+                    "HU": 7.3,
+                    "IS": 7.43,
+                    "IN": 6.49,
+                    "ID": 6.89,
+                    "IR": 5.1,
+                    "IE": 7.8,
+                    "IL": 7.24,
+                    "IT": 6.92,
+                    "JM": 7.18,
+                    "JP": 7.6,
+                    "JO": 7.86,
+                    "KZ": 7,
+                    "KE": 6.98,
+                    "KW": 7.2,
+                    "KR": 7.46,
+                    "LV": 7.36,
+                    "LB": 7.19,
+                    "LT": 7.56,
+                    "LU": 7.4,
+                    "MG": 6.64,
+                    "MW": 6.01,
+                    "MY": 7,
+                    "ML": 5.98,
+                    "MT": 7.63,
+                    "MR": 6.32,
+                    "MU": 8.09,
+                    "MX": 6.75,
+                    "MD": 6.85,
+                    "MN": 6.98,
+                    "ME": 7.41,
+                    "MA": 6.45,
+                    "MZ": 6.09,
+                    "MM": 5.28,
+                    "NA": 6.5,
+                    "NP": 6.16,
+                    "NL": 7.45,
+                    "NZ": 8.25,
+                    "NI": 7.44,
+                    "NE": 5.7,
+                    "NG": 6.19,
+                    "NO": 7.52,
+                    "OM": 7.34,
+                    "PK": 6.26,
+                    "PA": 7.11,
+                    "PG": 7.1,
+                    "PY": 6.84,
+                    "PE": 7.63,
+                    "PH": 7.29,
+                    "PL": 7.31,
+                    "PT": 7.37,
+                    "QA": 7.78,
+                    "RO": 7.57,
+                    "RU": 6.65,
+                    "RW": 7.53,
+                    "SA": 6.84,
+                    "SN": 6.02,
+                    "RS": 6.37,
+                    "SL": 6.57,
+                    "SG": 8.54,
+                    "SK": 7.34,
+                    "SI": 6.57,
+                    "SO": 8,
+                    "ZA": 6.73,
+                    "ES": 7.29,
+                    "LK": 6.65,
+                    "SR": 6.82,
+                    "SZ": 6.69,
+                    "SE": 7.47,
+                    "CH": 8.19,
+                    "TW": 7.71,
+                    "TJ": 6.67,
+                    "TZ": 6.71,
+                    "TH": 6.62,
+                    "TL": 6.28,
+                    "TG": 5.64,
+                    "TT": 6.88,
+                    "TN": 6.68,
+                    "TR": 7.03,
+                    "UG": 7.22,
+                    "UA": 6.27,
+                    "AE": 8.05,
+                    "GB": 7.84,
+                    "US": 7.81,
+                    "UY": 7.33,
+                    "VE": 3.89,
+                    "VN": 6.42,
+                    "YE": 6.34,
+                    "ZM": 7.13,
+                    "ZW": 4.92
+                }
+            }]
+        }
+    });
+    })
+  </script>
+</head>
+<body>
+<div style="position:absolute;top:50%; left:50%; margin-left: -300px; margin-top: -300px;">
+    <h2>Corrupcao, (quanto mais azul, menos corrupcao)</h2>
+    <div id="map1" style="width: 600px; height: 400px;"></div>
+    <br/>
+    <h2>Liberdade, (quanto mais azul, mais livre)</h2>
+  <div id="map2" style="width: 600px; height: 400px;"></div>
+</div>
+<p>
+    Fontes:<br/>
+    <a href="http://liberdadeeconomica.com.br/ranking/2012">Ranking de liberdade</a><br />
+    <a href="http://www.transparency.org/cpi2012/results">Ranking da corrupcao</a>
+</p>
+</body>
+</html>
